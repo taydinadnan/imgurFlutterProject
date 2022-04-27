@@ -37,6 +37,7 @@ dependencies:
   amplify_flutter: ^0.4.2
   amplify_authenticator: ^0.1.0
   amplify_auth_cognito: ^0.4.2
+  http: ^0.13.4
 
 
 dev_dependencies:
