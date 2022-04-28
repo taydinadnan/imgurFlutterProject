@@ -1,4 +1,3 @@
-import 'package:amplify_authenticator/amplify_authenticator.dart';
 import 'package:flutter/material.dart';
 
 import '../models/imgur_image.dart';
@@ -35,12 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Imgur Images'),
-        actions: const [
-          SignOutButton(),
-        ],
-      ),
       body: _loadView(),
     );
   }
@@ -57,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onPressed: () {
             _fetchImages();
           },
-          child: Text('Try Again'),
+          child: const Text('Try Again'),
         ),
       );
     } else {

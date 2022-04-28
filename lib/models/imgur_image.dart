@@ -42,7 +42,7 @@ class ImgurImage {
 
 Future<ImgurImages> fetchImages() async {
   final response = await http.get(
-    Uri.parse('https://api.imgur.com/3/gallery/'),
+    Uri.parse('https://api.imgur.com/3/gallery/hot/viral/'),
     headers: {HttpHeaders.authorizationHeader: "Client-ID 0b3d1911da8bf87"},
   );
   if (response.statusCode == 200) {

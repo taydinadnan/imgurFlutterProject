@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1037947250601",
+    "project_id": "imgurflutterapp",
+    "storage_bucket": "imgurflutterapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037947250601:android:70d0355c2e519d1620c6b8",
+        "android_client_info": {
+          "package_name": "com.example.imgurflutterproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1037947250601-08lla6685m0s8o46225aivt750gn1se5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKCw4e_BR8CPfi6DtDun-N9-BWP6o_6G0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1037947250601-08lla6685m0s8o46225aivt750gn1se5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1037947250601-sch9mluemgnrr25pfoq4219k7pdc0q10.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.imgurflutterproject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
