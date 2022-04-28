@@ -1,7 +1,10 @@
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_authenticator/amplify_authenticator.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:imgurflutterproject/models/imgur_image.dart';
 import 'package:imgurflutterproject/screens/home_screen.dart';
+import 'package:imgurflutterproject/screens/profile_screen.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -17,13 +20,10 @@ class _NavBarState extends State<NavBar> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     Text(
-      'Index 1: Business',
+      'Index 1: Upload',
       style: optionStyle,
     ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -35,11 +35,54 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Imgur Images'),
-        actions: const [
-          SignOutButton(),
-        ],
+      appBar: PreferredSize(
+        child: Container(
+          padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 30.0, top: 20.0, bottom: 20.0),
+            child: Container(
+              height: 70,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset(
+                    'assets/logo.png',
+                    color: Colors.white,
+                  ),
+                  IconButton(
+                    onPressed: () async {
+                      try {
+                        await Amplify.Auth.signOut();
+                      } on AuthException catch (e) {
+                        print(e.message);
+                      }
+                    },
+                    icon: const Icon(
+                      Icons.exit_to_app,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF0b0b45),
+                Color(0xFF0C0C0C),
+              ],
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey,
+                blurRadius: 20.0,
+                spreadRadius: 1.0,
+              )
+            ],
+          ),
+        ),
+        preferredSize: Size(MediaQuery.of(context).size.width, 150.0),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -51,16 +94,16 @@ class _NavBarState extends State<NavBar> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.add),
+            label: 'Upload',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.person),
+            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.green[800],
         onTap: _onItemTapped,
       ),
     );
